@@ -1,0 +1,14 @@
+.nav-space{
+  background-color: #000;
+}
+@media (min-width: $tablet-start){
+  .nav-space{
+    height: 5vw;
+  }
+}
+@media (max-width: $mobile-end){
+  .nav-space{
+    height: 15vw;
+    grid-area: nav;
+  }
+}

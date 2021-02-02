@@ -1,0 +1,253 @@
+// styling for <input> (various input field styles for project)
+// * Usually inside a <form></form>
+
+// Input fields styling
+@mixin basic-form-fields() {
+  color: $almost-black;
+  border: 1px solid $grey300;
+  border-radius: 1px;
+  background-color: $almost-white;
+  padding: 0 calc(21 * var(--screen-w));
+  @media only screen and (max-width: $mobile-end) {
+    padding: 0 calc(21 * var(--screen-w));
+  }
+  &::-webkit-input-placeholder {
+    color: $mid-grey;
+    letter-spacing: 0em;
+  }
+  &::-moz-placeholder {
+    color: $mid-grey;
+    letter-spacing: 0em;
+  }
+  &:-ms-input-placeholder {
+    color: $mid-grey;
+    letter-spacing: 0em;
+  }
+  &:-moz-placeholder {
+    color: $mid-grey;
+    letter-spacing: 0em;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  @include basic-form-fields();
+}
+
+textarea {
+  padding-top: calc(16 * var(--screen-w));
+  @media only screen and (max-width: $mobile-end) {
+    padding-top: calc(16 * var(--screen-w));
+  }
+}
+
+// Select input field styling
+@mixin select-input-field() {
+  @include basic-form-fields;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='18' viewBox='0 0 21 18'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23bebebe; %7D %3C/style%3E%3C/defs%3E%3Cpath id='Select_Down_Arrow' data-name='Select Down Arrow' class='cls-1' d='M10.5,0,21,18H0Z' transform='translate(21 18) rotate(180)'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  cursor: pointer;
+  // below works in conjunction with select-input-toggle.ts
+  color: $mid-grey;
+  &.item_selected {
+    color: $almost-black;
+  }
+}
+select {
+  @include select-input-field();
+}
+
+// Checkbox input styling
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: calc(20 * var(--screen-w));
+  line-height: calc(22 * var(--screen-w));
+  height: calc(22 * var(--screen-w));
+  width: calc(22 * var(--screen-w));
+  clear: both;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkbox-custom {
+    position: absolute;
+    top: calc(0 * var(--screen-w));
+    left: calc(0 * var(--screen-w));
+    height: calc(22 * var(--screen-w));
+    width: calc(22 * var(--screen-w));
+    background-color: $white;
+    border-radius: calc(2 * var(--screen-w));
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: calc(2 * var(--screen-w)) solid $grey200;
+  }
+
+  input:checked ~ .checkbox-custom {
+    background-color: $red-100;
+    border-radius: calc(2 * var(--screen-w));
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    border: calc(1 * var(--screen-w)) solid $red-100;
+  }
+
+  .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: calc(12 * var(--screen-w));
+    top: calc(12 * var(--screen-w));
+    height: calc(0 * var(--screen-w));
+    width: calc(0 * var(--screen-w));
+    border-radius: calc(2 * var(--screen-w));
+    border: solid $white;
+    border-width: 0 calc(3 * var(--screen-w)) calc(3 * var(--screen-w)) 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+
+  input:checked ~ .checkbox-custom::after {
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+    left: calc(7 * var(--screen-w));
+    top: calc(1.5 * var(--screen-w));
+    width: calc(7 * var(--screen-w));
+    height: calc(14 * var(--screen-w));
+    border: solid $white;
+    border-width: calc(0 * var(--screen-w)) calc(2 * var(--screen-w))
+      calc(2 * var(--screen-w)) calc(0 * var(--screen-w));
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: calc(10 * var(--screen-w));
+    top: calc(10 * var(--screen-w));
+    width: calc(0 * var(--screen-w));
+    height: calc(0 * var(--screen-w));
+    border-radius: calc(2 * var(--screen-w));
+    border: calc(2 * var(--screen-w)) solid $white;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  input:checked ~ .checkbox-custom::before {
+    left: calc(-3 * var(--screen-w));
+    top: calc(-3 * var(--screen-w));
+    width: calc(22 * var(--screen-w));
+    height: calc(22 * var(--screen-w));
+    border-radius: calc(2 * var(--screen-w));
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+    opacity: 0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+} // end .checkbox-container
+
+@media only screen and (max-width: $mobile-end) {
+  // Checkbox input styling
+  .checkbox-container {
+    font-size: calc(20 * var(--screen-w));
+    line-height: calc(22 * var(--screen-w));
+    height: calc(22 * var(--screen-w));
+    width: calc(22 * var(--screen-w));
+
+    .checkbox-custom {
+      top: calc(0 * var(--screen-w));
+      left: calc(0 * var(--screen-w));
+      height: calc(22 * var(--screen-w));
+      width: calc(22 * var(--screen-w));
+      border-radius: calc(2 * var(--screen-w));
+      border: calc(2 * var(--screen-w)) solid $grey200;
+    }
+
+    input:checked ~ .checkbox-custom {
+      border-radius: calc(2 * var(--screen-w));
+      border: calc(1 * var(--screen-w)) solid $red-100;
+    }
+
+    .checkbox-custom::after {
+      left: calc(12 * var(--screen-w));
+      top: calc(12 * var(--screen-w));
+      height: calc(0 * var(--screen-w));
+      width: calc(0 * var(--screen-w));
+      border-radius: calc(2 * var(--screen-w));
+      border-width: 0 calc(3 * var(--screen-w)) calc(3 * var(--screen-w)) 0;
+    }
+
+    input:checked ~ .checkbox-custom::after {
+      left: calc(7 * var(--screen-w));
+      top: calc(1.5 * var(--screen-w));
+      width: calc(6 * var(--screen-w));
+      height: calc(14 * var(--screen-w));
+      border-width: calc(0 * var(--screen-w)) calc(2 * var(--screen-w))
+        calc(2 * var(--screen-w)) calc(0 * var(--screen-w));
+    }
+
+    .checkbox-custom::before {
+      left: calc(10 * var(--screen-w));
+      top: calc(10 * var(--screen-w));
+      width: calc(0 * var(--screen-w));
+      height: calc(0 * var(--screen-w));
+      border-radius: calc(2 * var(--screen-w));
+      border: calc(2 * var(--screen-w)) solid $white;
+    }
+
+    input:checked ~ .checkbox-custom::before {
+      left: calc(-3 * var(--screen-w));
+      top: calc(-3 * var(--screen-w));
+      width: calc(22 * var(--screen-w));
+      height: calc(22 * var(--screen-w));
+      border-radius: calc(2 * var(--screen-w));
+    }
+  } // end .checkbox-container
+} // end mobile checkbox input styling

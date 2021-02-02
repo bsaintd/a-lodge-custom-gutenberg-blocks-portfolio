@@ -1,0 +1,35 @@
+// flex display, direction and wrap
+// eg:
+// @include set-flex(flex, row, wrap);
+@mixin set-flex($display, $direction, $wrap) {
+  // flex display
+  @if $display == 'flex' {
+    display: flex;
+  }
+  @else if $display == 'inline-flex' {
+    display: inline-flex;
+  }
+  // flex direction
+  @if $direction == 'row' {
+    flex-direction: row;
+  }
+  @else if $direction == 'column' {
+    flex-direction: column;
+  }
+  @else if $direction == 'row-reverse' {
+    flex-direction: row;
+  }
+  @else if $direction == 'column-reverse' {
+    flex-direction: column-reverse;
+  }
+  // flex wrap
+  @if $wrap == 'nowrap' {
+    flex-wrap: nowrap;
+  }
+  @else if $wrap == 'wrap' {
+    flex-wrap: wrap;
+  }
+  @else if $wrap == 'wrap-reverse' {
+    flex-wrap: wrap-reverse;
+  }
+}

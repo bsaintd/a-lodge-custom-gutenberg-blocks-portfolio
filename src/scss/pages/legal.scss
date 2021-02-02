@@ -1,0 +1,109 @@
+//desktop
+body.legal {
+  @media (min-width: $tablet-start) {
+    #primary {
+      display: grid;
+      grid-template-areas: "main sidebar";
+      grid-template-columns: calc(1240 * var(--screen-w)) 1fr;
+
+      main {
+        grid-area: main;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+    }
+
+    .sidebar {
+      margin-top: calc(75 * var(--screen-w));
+      padding: calc(56 * var(--screen-w)) calc(50 * var(--screen-w));
+      h3 {
+        @include subheader1();
+        max-width: calc(442 * var(--screen-w));
+      }
+      .underline {
+        border-bottom: 1px solid $mid-grey;
+        padding-bottom: calc(20 * var(--screen-w));
+        margin-bottom: calc(25 * var(--screen-w));
+      }
+      background-color: $almost-white;
+      a {
+        font-family: "Enzo OT";
+        font-weight: bold;
+        font-size: calc(26 * var(--screen-w));
+        letter-spacing: -0.01em;
+        line-height: calc(40 * var(--screen-w));
+        text-align: left;
+        color: $mid-grey;
+        &:hover {
+          color: $dark-red;
+        }
+      }
+    }
+    main {
+      ul {
+        list-style: disc;
+        padding-left: 2em;
+      }
+      display: grid;
+      grid-template-areas: "copy";
+      h1.entry-title {
+        @include likeh4dark();
+        padding-top: calc(50 * var(--screen-w));
+        padding-bottom: calc(11 * var(--screen-w));
+        margin-bottom: calc(30 * var(--screen-w));
+        border-bottom: 1px solid $almost-black;
+      }
+      h2 {
+        @include subheaders($sheader1-size, $almost-black, $sheader1-size * 3);
+      }
+      p {
+        @include bodycopy1dark();
+      }
+      padding: calc(67 * var(--screen-w)) calc(74 * var(--screen-w)) calc(100 * var(--screen-w))
+        calc(140 * var(--screen-w));
+      max-width: calc(1242 * var(--screen-w));
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: $mobile-end) {
+    #primary {
+      display: grid;
+      grid-template-areas: "main";
+
+      main {
+        grid-area: main;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+
+    main {
+      ul {
+        list-style: disc;
+        padding-left: 2em;
+      }
+      display: grid;
+      grid-template-areas: "copy";
+      h1.entry-title {
+        @include likeh4dark();
+
+        padding-bottom: calc(11 * var(--screen-w));
+        margin-bottom: calc(30 * var(--screen-w));
+        border-bottom: 1px solid $almost-black;
+      }
+      @include bodycopy2();
+      h2 {
+        @include subheaders($sheader1-size, $almost-black, $sheader1-size);
+        margin-top: mvw($sheader1-size);
+        margin-bottom: mvw($sheader1-size);
+      }
+
+      padding: calc(40 * var(--screen-w)) calc(20 * var(--screen-w));
+
+      justify-self: start;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.wp-block-alodge-about-hero {
+  grid-area: hero;
+  padding: 0;
+  .image-area {
+    background-size: cover;
+    background-position: center;
+  }
+  .area-container {
+    --grid-template-columns: calc(815 * calc(var(--screen-w))) 1fr;
+    --grid-template-areas: "copy images";
+    display: grid;
+    grid-template-columns: var(--grid-template-columns);
+    grid-template-areas: var(--grid-template-areas);
+    & > .copy {
+      grid-area: copy;
+      color: var(--almost-black);
+      h1{
+        font-size: var(--h4-rem);
+        padding-left: .5rem;
+        border-left: 5rem solid var(--red);
+        color: var(--almost-black);
+        line-height: .73;
+        position: relative;
+        left: -5.5rem;
+        margin: .5rem 0;
+      }
+      h3{
+        font-size: var(--sheader2-rem);
+        color: var(--dark-red)
+      }
+      p{
+        color: var(--almost-black);
+      }
+    }
+    .image-area {
+      grid-area: images;
+    }
+    & > .copy {
+      padding: 1rem 3rem 1.5rem
+        5.5rem;
+    }
+  }
+  @media (max-width: $mobile-end) {
+    padding: 0;
+    .area-container {
+      --grid-template-columns: auto;
+      --grid-template-areas:
+        "images"
+        "copy";
+      --img-height: calc(260 * var(--screen-w));
+
+      & > .copy {
+        padding: calc(35 * var(--screen-w)) calc(40 * var(--screen-w));
+      }
+    }
+  }
+}

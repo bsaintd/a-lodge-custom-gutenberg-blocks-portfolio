@@ -1,0 +1,10 @@
+/* this module is to unset undesirable behaviors originating from style.css */
+body.page{
+  margin: 0;
+}
+
+ul{
+  margin: unset;
+  list-style: none;
+  padding-left:unset;
+}

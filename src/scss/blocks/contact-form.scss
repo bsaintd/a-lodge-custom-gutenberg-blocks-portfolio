@@ -1,0 +1,42 @@
+.wp-block-alodge-contact-form {
+  padding: 3rem 0;
+  form {
+    width: 100%;
+    max-width: 40rem;
+    padding-right: var(--padding-right);
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    --input-width: 100%;
+    --input-max-width: 18rem;
+    --padding-right: 1rem;
+    @media(max-width: $mobile-end){
+      --padding-right: none;
+    }
+    input,
+    select,
+    textarea {
+      padding: 1rem;
+      background-color: var(--almost-white);
+      border: 1px solid var(--grey300);
+      margin: 0 1.5rem 1.5rem 0;
+      font-size: calc(var(--body3-size) * var(--screen-w));
+      color: var(--mid-grey);
+    }
+    input {
+      width: var(--input-width);
+      max-width: var(--input-max-width);
+    }
+    textarea,
+    select {
+      width: 100%;
+    }
+
+    textarea {
+      height: 8rem;
+    }
+    [type="submit"] {
+      display: block;
+    }
+  }
+}

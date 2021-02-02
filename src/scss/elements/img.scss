@@ -1,0 +1,10 @@
+// styling for <img> (image styles for project)
+@mixin coverImage() {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+img.cover {
+  @include coverImage();
+}

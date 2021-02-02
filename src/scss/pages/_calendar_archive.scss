@@ -1,0 +1,71 @@
+// Calendar Archive Page and Event Category Archive Page Desktop Styling
+@media only screen and (min-width: $tablet-start) {
+  body.post-type-archive-mec-events,
+  body.tax-mec_category.archive {
+    section#main-content.container {
+      padding-top: calc(60 * var(--screen-w));
+      padding-bottom: calc(60 * var(--screen-w));
+      h1 {
+        display: none;
+      }
+      .mec-calendar {
+        border: none;
+        .mec-calendar-topsec {
+          width: 100%;
+          .mec-calendar-side {
+            width: 60%;
+            .mec-skin-monthly-view-month-navigator-container {
+              display: inline-block;
+              width: 100%;
+              .mec-calendar-header {
+                margin: 0 0;
+                padding-bottom: calc(60 * var(--screen-w));
+                h2 {
+                  @include headings($h5size, $almost-black);
+                  text-align: left;
+                }
+              }
+              .mec-next-month,
+              .mec-previous-month {
+                top: unset;
+                bottom: calc(10 * var(--screen-w));
+              }
+              .mec-previous-month {
+                left: 0;
+              }
+              .mec-next-month {
+                right: 0;
+              }
+            }
+            .mec-calendar-table {
+              display: inline-block;
+              .mec-month-container {
+                dt {
+                  width: calc(130 * var(--screen-w));
+                  height: calc(110 * var(--screen-w));
+                }
+              }
+            }
+          }
+          .mec-calendar-events-side {
+            width: 40%;
+          }
+        }
+        .mec-event-footer {
+          display: none;
+        }
+      }
+    }
+
+    // hide footer calendar on calendar archive page (styling collisions)
+    .site-footer {
+      .footer-components {
+        .calendar-title h2,
+        .footer-cal .mec-wrap .mec-calendar,
+        .footer-cal .footer-cal-link {
+          display: none;
+        }
+      }
+    }
+  } // END body.post-type-archive-mec-events, body.tax-mec_category.archive
+} // END desktop only media query

@@ -1,0 +1,99 @@
+//desktop
+main > section.rooms,
+main > .wp-block-group.rooms .wp-block-group__inner-container,
+main > section.amenities,
+main > .wp-block-group.amenities .wp-block-group__inner-container,
+main > section.experiences,
+main > .wp-block-group.experiences .wp-block-group__inner-container {
+  grid-template-columns: repeat(3, 33%);
+  grid-gap: 0.3rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  display: var(--display);
+  padding: var(--padding);
+  justify-content: var(--justify-content);
+  .room {
+    background-size: cover;
+    background-position: center;
+    --room-color: var(--white);
+    --room-align-content: start;
+    align-content: var(--room-align-content);
+    width: var(--room-width);
+    height: var(--room-height);
+    padding: var(--room-padding);
+    transition: all 0.5s ease;
+    h2 {
+      font-size: var(--h2-font-size);
+    }
+    h2,
+    p {
+      color: var(--room-color);
+    }
+    p,
+    .cta-wrapper,
+    a {
+      opacity: 0;
+    }
+    a {
+      @include cta(var(--white), transparent, true, var(--almost-black), var(--almost-black));
+      display: block;
+    }
+    &:hover {
+      --room-align-content: center;
+      background-color: var(--almost-black);
+      background-blend-mode: soft-light;
+      p,
+      .cta-wrapper,
+      a {
+        opacity: 1;
+      }
+    }
+  }
+  .room,
+  .amenity {
+    display: grid;
+  }
+  .amenity {
+    grid-template-areas:
+      "subheading"
+      "copy"
+      "cta";
+    h3 {
+      grid-area: subheading;
+    }
+    & > .copy {
+      grid-area: copy;
+    }
+    .cta {
+      grid-area: cta;
+    }
+    justify-content: center;
+  }
+  @media (min-width: $tablet-start) {
+    --display: grid;
+    --padding: calc(54 * var(--screen-w));
+    --justify-content: center;
+    .room {
+      --room-height: calc(440 * var(--screen-w));
+      --room-padding: calc(30 * var(--screen-w));
+      border: 0.15rem solid var(--white);
+      --h2-font-size: var(--h6-font-size);
+      &:hover {
+        --h2-font-size: var(--h4-font-size);
+      }
+    }
+  }
+  @media (max-width: $mobile-end) {
+    --display: flex;
+    --padding: calc(20 * var(--screen-w));
+    .room {
+      --room-height: calc(275 * var(--screen-w));
+      --room-padding: calc(20 * var(--screen-w));
+      margin-bottom: calc(20 * var(--screen-w));
+      h2 {
+        --h2-font-size: var(--h7-font-size);
+      }
+    }
+  }
+}

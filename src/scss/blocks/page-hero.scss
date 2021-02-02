@@ -1,0 +1,126 @@
+.wp-block-alodge-page-hero,
+.wp-block-alodge-page-hero-freeform {
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  .image {
+    display: grid;
+    grid-area: image-area;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (min-width: $tablet-start) {
+    --copy-area-padding: calc(60 * var(--screen-w)) calc(50 * var(--screen-w));
+  }
+  @media (max-width: $mobile-end) {
+    --copy-area-padding: calc(30 * var(--screen-w)) calc(40 * var(--screen-w));
+  }
+
+  .copy-area {
+    padding: var(--copy-area-padding);
+    h2 {
+      font-size: var(--h4-font-size);
+      color: var(--almost-black);
+    }
+    h3 {
+      font-size: var(--h7-5-font-size);
+      color: var(--dark-red);
+    }
+    .copy,
+    p {
+      color: var(--almost-black);
+    }
+  }
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    line-height: 0.73;
+    z-index: 1;
+    background-color: var(--red);
+  }
+  .large-heading {
+    background-color: var(--red);
+  }
+  @media (min-width: $tablet-start) {
+    grid-template-columns: 1fr 45vw;
+    grid-template-areas:
+      "image-area large-heading"
+      "image-area copy-area";
+    .large-heading {
+      grid-area: large-heading;
+      //background-color: $red;
+      h1 {
+        position: relative;
+        left: calc(-70 * var(--screen-w));
+        background-color: $red;
+        span {
+          position: relative;
+          left: calc(-10 * var(--screen-w));
+        }
+      }
+    }
+    .copy-area {
+      grid-area: copy-area;
+      background-color: $light-grey;
+      // padding: calc( 60 * var(--screen-w)) calc( 50 * var(--screen-w));
+      h2,
+      h3,
+      .copy {
+        max-width: calc(620 * var(--screen-w));
+      }
+      .cta {
+        margin-top: calc(30 * var(--screen-w));
+      }
+    }
+  }
+
+  @media (max-width: $mobile-end) {
+    grid-template-areas:
+      "image-area "
+      " copy-area";
+    .large-heading {
+      background-color: $red;
+      position: absolute;
+      left: calc(20 * var(--screen-w));
+      width: calc(394 * var(--screen-w));
+      h1 {
+        font-size: var(--h3-font-size);
+        color: var(--light-grey);
+        //background-color: $red;
+        span {
+          position: relative;
+          left: calc(-10 * var(--screen-w));
+        }
+      }
+    }
+    & > .image {
+      @include coverImage();
+      height: calc(374 * var(--screen-w));
+    }
+    .copy-area {
+      grid-area: copy-area;
+      background-color: $light-grey;
+      // padding: calc( 33 * var(--screen-w)) calc( 40 * var(--screen-w));
+      h2,
+      h3,
+      .copy {
+        max-width: calc(620 * var(--screen-w));
+      }
+      h2 {
+        font-size: var(--h6-font-size);
+        color: var(--almost-black);
+      }
+      h3 {
+        @include subheader2();
+      }
+      .copy {
+        @include bodycopy2();
+      }
+      .cta {
+        display: block;
+      }
+    }
+  }
+}

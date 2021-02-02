@@ -1,0 +1,83 @@
+.wp-block-alodge-toc-document {
+  --display: grid;
+  --sidebar-display: flex;
+  --grid-template-columns: 65% 1fr;
+  --grid-template-areas: "main-area toc";
+  --main-padding: 3rem 5.5rem;
+
+  @media (max-width: $mobile-end) {
+    --display: block;
+    --sidebar-display: none;
+    --grid-template-columns: auto;
+    --grid-template-areas: "main-area";
+    --main-padding: 1.2rem;
+  }
+  display: var(--display);
+  grid-template-columns: var(--grid-template-columns);
+  grid-template-areas: var(--grid-template-areas);
+
+  padding-bottom: calc(100 * var(--screen-w));
+  & > .main {
+    grid-area: main-area;
+
+    padding: var(--main-padding);
+    p {
+      max-width: 40rem;
+    }
+    h2 {
+      --font-size: var(--h4-rem);
+      color: var(--almost-black);
+      border-left: 5rem solid var(--almost-black);
+      line-height: 0.73;
+      margin: 3rem 0 .5rem;
+      position: relative;
+      padding-left: 0.5rem;
+      left: -5.5rem;
+    }
+    h4 {
+      --font-size: var(--sheader1-rem);
+      color: var(--almost-black);
+    }
+    h3 {
+      font-size: var(--sheader1-rem);
+      color: var(--grey200);
+      font-weight: 700;
+    }
+    span.private-owner {
+      color: var(--dark-red);
+    }
+  }
+  & > .sidebar {
+    display: var(--sidebar-display);
+    align-items: flex-start;
+    grid-area: toc;
+    margin-top: calc(75 * var(--screen-w));
+    padding: calc(56 * var(--screen-w)) calc(50 * var(--screen-w));
+    background-color: var(--almost-white);
+    .table-of-contents {
+      position: sticky;
+      top: calc(175 * var(--screen-w));
+      h3 {
+        @include subheader1();
+        max-width: calc(442 * var(--screen-w));
+      }
+      .underline {
+        border-bottom: 1px solid var(--mid-grey);
+        padding-bottom: calc(20 * var(--screen-w));
+        margin-bottom: calc(25 * var(--screen-w));
+      }
+      a {
+        font-family: ff-enzo-web, sans-serif;
+        font-weight: bold;
+        font-size: calc(26 * var(--screen-w));
+        letter-spacing: -0.01em;
+        line-height: calc(40 * var(--screen-w));
+        text-align: left;
+        color: var(--mid-grey);
+        &:hover {
+          color: var(--dark-red);
+        }
+      }
+    }
+  }
+}

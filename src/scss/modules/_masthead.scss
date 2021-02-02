@@ -1,0 +1,58 @@
+#masthead {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: calc(263 * var(--screen-w)) auto;
+  grid-template-areas: "logozone navigation";
+  align-items: center;
+  width: 100%;
+  height: calc(122 * var(--screen-w));
+  position: absolute;
+  z-index: z("top");
+  color: $white;
+  background-color: $almost-black;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 calc(140 * var(--screen-w));
+  transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  &.hide-nav {
+    transform: translateY(-100%);
+  }
+  #site-navigation {
+    grid-area: navigation;
+    align-self: center;
+    justify-self: end;
+  }
+  .site-branding {
+    grid-area: logozone;
+    display: flex;
+    align-items: center;
+    a.custom-logo-link {
+      img {
+        display: block;
+      }
+    }
+    p {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: map_get($breakpoints, "tablet")) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "logozone navigation";
+    height: calc(58 * var(--screen-w));
+    width: 100%;
+    padding: 0 calc(20 * var(--screen-w));
+    position: fixed;
+    top: 0;
+    transform: unset !important;
+
+    #site-navigation {
+      align-self: start;
+    }
+    .site-branding {
+      img {
+        width: calc(138 * var(--screen-w));
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// positioning grid item/child
+// eg:
+// @include grid-child(2, 3, 2, 3);
+@mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
+}

@@ -1,0 +1,263 @@
+.site-footer {
+  .about-us {
+    padding: var(--about-us-padding);
+    background-color: var(--dark-grey);
+    .copy,
+    .copy p,
+    p {
+      color: var(--white);
+    }
+  }
+  @media (min-width: $tablet-start) {
+    display: grid;
+    grid-template-columns: 64.2vw 35.8vw;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "footer-components footer-components"
+      "bottom-bar        bottom-bar";
+    .components-container {
+      grid-area: footer-components;
+      padding: 0;
+    }
+    .bottom-bar {
+      grid-area: bottom-bar;
+      width: 100%;
+      .copyright {
+        display: inline-block;
+        width: 25vw;
+        padding-left: 3em;
+        color: $grey200;
+      }
+      .footer-links {
+        display: inline-block;
+        width: 50vw;
+        text-align: center;
+        ul {
+          @include set-flex(inline-flex, row, wrap);
+          li {
+            padding: calc(30 * var(--screen-w));
+          }
+          a {
+            @include headings($body1-size, $mid-grey);
+          }
+        }
+      }
+    }
+
+    /** project specific footer components */
+    .footer-components {
+      display: grid;
+      grid-template-columns: calc(660 * var(--screen-w)) 33% 33%;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "about-us newsletter cal-title "
+        "about-us newsletter cal-plugin"
+        "about-us contact-us cal-plugin";
+      .about-us {
+        grid-area: about-us;
+      }
+      .newsletter-signup {
+        grid-area: newsletter;
+      }
+      .contact-us {
+        grid-area: contact-us;
+      }
+      .calendar-title {
+        grid-area: cal-title;
+      }
+      .footer-cal {
+        grid-area: cal-plugin;
+      }
+      --about-us-padding: 3rem;
+      .about-us {
+        .background {
+          display: none;
+        }
+        border-left: calc(54 * var(--screen-w)) solid $red;
+        h2 {
+          --font-size: var(--h5-font-size);
+          color: var(--red);
+          margin-bottom: calc(8 * var(--screen-w));
+        }
+        h3 {
+          --font-size: var(--h7-font-size);
+          color: var(--white);
+        }
+        .footer-ig,
+        .footer-fb,
+        .footer-twitter,
+        .footer-trip-advisor {
+          display: inline-block;
+          width: calc(38 * var(--screen-w));
+          height: calc(38 * var(--screen-w));
+          margin-top: calc(35 * var(--screen-w));
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          a.cta {
+            content: "";
+            padding: 0;
+            border: 0px solid transparent;
+            background-color: transparent;
+            &:hover {
+              background-color: transparent;
+            }
+          }
+        }
+        .footer-ig,
+        .footer-fb {
+          margin-right: calc(15 * var(--screen-w));
+        }
+        .footer-twitter {
+          margin-right: calc(25 * var(--screen-w));
+        }
+      }
+
+      .newsletter-signup {
+        input {
+          font-size: calc(20 * var(--screen-w));
+          padding: 0.75em;
+          &[type="email"] {
+            min-width: calc(280 * var(--screen-w));
+          }
+          &[type="submit"] {
+            @include cta($white, $mid-grey, false);
+            font-weight: 700;
+            padding-top: 0.75em;
+            padding-bottom: 0.75em;
+          }
+        }
+      }
+
+      .newsletter-signup,
+      .calendar-title {
+        padding-top: calc(62 * var(--screen-w));
+      }
+
+      .newsletter-signup,
+      .contact-us {
+        border-left: calc(8 * var(--screen-w)) solid $white;
+        padding-left: calc(60 * var(--screen-w));
+        p {
+          @include bodycopy($body2-size, $mid-grey, $body2-line-h);
+        }
+      }
+
+      .newsletter-signup,
+      .contact-us {
+        padding-bottom: calc(60 * var(--screen-w));
+        padding-right: calc(73 * var(--screen-w));
+      }
+
+      .contact-us {
+        h3 {
+          border-top: 2px solid $mid-grey;
+          padding-top: calc(60 * var(--screen-w));
+        }
+        .copy {
+          a,
+          a:visited,
+          a:hover {
+            color: unset;
+          }
+        }
+      }
+
+      .newsletter-signup,
+      .contact-us,
+      .calendar-title {
+        background-color: $light-grey;
+        h2 {
+          --font-size: var(--h5-font-size);
+          color: var(--mid-grey);
+        }
+        h3 {
+          --font-size: var(--h7-font-size);
+          color: var(--almost-black);
+        }
+      }
+
+      .footer-cal {
+        --footer-cal-width: calc(411 * var(--screen-w));
+        --month-container-dt-width: calc(55 * var(--screen-w));
+        background-color: $light-grey;
+        position: relative;
+        .footer-cal-link {
+          position: absolute;
+          left: 0;
+          top: calc(36 * var(--screen-w));
+          bottom: calc(63 * var(--screen-w));
+          width: var(--footer-cal-width);
+          z-index: z("top");
+        }
+        .mec-wrap {
+          .mec-calendar {
+            border: none;
+            box-shadow: none;
+            margin: calc(36 * var(--screen-w)) 0 calc(63 * var(--screen-w));
+            .mec-calendar-topsec {
+              background-color: $almost-white;
+              .mec-calendar-side {
+                background-color: $white;
+                border: 1px solid $grey250;
+                padding: calc(16 * var(--screen-w));
+                width: var(--footer-cal-width);
+                .mec-skin-monthly-view-month-navigator-container {
+                  .mec-month-navigator {
+                    .mec-calendar-header {
+                      margin-top: 0;
+                      margin-bottom: calc(20 * var(--screen-w));
+                      padding-top: 0;
+                      width: 100%;
+                      h2 {
+                        font-family: "TradeGothic Bold Condensed", sans-serif;
+                      }
+                    }
+                    .mec-previous-month,
+                    .mec-next-month {
+                      display: none;
+                    }
+                  }
+                }
+                .mec-calendar-table {
+                  min-height: unset;
+                  .mec-month-container {
+                    dt {
+                      width: var(--month-container-dt-width);
+                    }
+                  }
+                }
+              }
+              .mec-calendar-events-side {
+                display: none;
+              }
+            }
+            .mec-event-footer {
+              display: none;
+            }
+          }
+        }
+      }
+
+      // Responsive Calendar Media Queries
+      @media (min-width: 1201px) and (max-width: 1500px) {
+        --footer-cal-width: calc(500 * var(--screen-w));
+        --month-container-dt-width: calc(67 * var(--screen-w));
+      }
+
+      @media (max-width: 1200px) {
+        --footer-cal-width: calc(550 * var(--screen-w));
+        --month-container-dt-width: calc(73 * var(--screen-w));
+        @media (max-width: 999px) {
+          // hide footer calendar on calendar archive page (styling collisions)
+          .calendar-title h2,
+          .footer-cal .mec-wrap .mec-calendar,
+          .footer-cal .footer-cal-link {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

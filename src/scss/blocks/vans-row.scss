@@ -1,0 +1,152 @@
+.wp-block-alodge-vans-row {
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: var(--grid-template-rows);
+  grid-template-columns: var(--grid-template-columns);
+  grid-template-areas: var(--grid-template-areas);
+  background-color: var(--background-color);
+  height: var(--height);
+  margin: var(--margin);
+  --background-color: var(--light-grey);
+  --carousel-width: 100%;
+  --carousel-max-width: 60vw;
+  --content-padding: 1rem 3rem;
+  --margin: calc(7 * var(--screen-w)) 0;
+  .carousel-gallery {
+    grid-area: gallery;
+    width: var(--carousel-width);
+    height: var(--gallery-height);
+    max-width: var(--carousel-max-width);
+  }
+  .heading{
+    grid-area: title;
+    background-color: var(--red);
+    width: 100%;
+    h1{
+      position: relative;
+      left: var(--h1-left);
+      text-align: var(--h1-text-align);
+      padding: var(--h1-padding);
+    }
+    p{
+      max-width: 28rem;
+    }
+  }
+  .section-content {
+    grid-area: copy;
+    padding: var(--content-padding);
+  }
+  @media (min-width: $tablet-start) {
+    --height: calc(536 * var(--screen-w));
+    --gallery-height: var(--height);
+    --grid-template-rows: calc(98 * var(--screen-w)) calc(110 * var(--screen-w)) auto 1fr;
+    &:nth-of-type(even) {
+      --grid-template-areas: "gallery title" "gallery copy";
+      --grid-template-columns: 1fr 40%;
+      --h1-left: calc(-82 * var(--screen-w));
+      --h1-text-align: left;
+    }
+    &:nth-of-type(odd) {
+      --grid-template-areas: " title gallery" "copy gallery";
+      --grid-template-columns: 40% 1fr;
+      --h1-left: calc(82 * var(--screen-w));
+      --h1-text-align: right;
+    }
+    --h1-padding:  0 calc(10 * var(--screen-w));
+    h1 {
+      --font-size: var(--h2-font-size);
+      z-index: z("middle");
+      line-height: 0.9;
+      background-color: var(--red);
+      height: 100%;
+    }
+    h3 {
+      align-self: end;
+      @include subheader1();
+    }
+    .carousel-gallery {
+      bottom: 0;
+      z-index: z("bottom");
+      i.prev-arrow,
+      i.next-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: calc(80 * var(--screen-w));
+        z-index: 1;
+        cursor: pointer;
+      }
+      i.next-arrow {
+        right: calc(20 * var(--screen-w));
+      }
+      i.prev-arrow {
+        left: calc(20 * var(--screen-w));
+      }
+      .slick-list {
+        height: 100%;
+        .slick-track {
+          height: 100%;
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: $mobile-end) {
+    padding-bottom: calc(45 * var(--screen-w));
+    --gallery-height: calc(374 * var(--screen-w));
+    --height: auto;
+    --grid-template-columns: 100%;
+    // --grid-template-rows: calc(50 * var(--screen-w)) calc(324 * var(--screen-w)) auto;
+    --grid-template-rows: var(--gallery-height) auto;
+    --grid-template-areas:
+      "gallery"
+      "copy";
+    --content-padding: 1rem 2rem;
+    --height: 100%;
+    .heading{
+      position: absolute;
+      padding-left: calc(6 * var(--screen-w));
+      margin-left: calc(30 * var(--screen-w));
+    }
+    h1 {
+      --font-size: var(--h5-rem);
+      z-index: z("middle");
+      background-color: var(--red);
+      height: 100%;
+    }
+    h3 {
+      @include subheaders($sheader3-size, $almost-black, $sheader3-line-h);
+    }
+    --carousel-width: 100%;
+    --carousel-max-width: 100vw;
+    .carousel-gallery {
+      i.prev-arrow,
+      i.next-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: calc(40 * var(--screen-w));
+        opacity: 0.5;
+        z-index: 1;
+        cursor: pointer;
+      }
+      i.next-arrow {
+        right: calc(10 * var(--screen-w));
+      }
+      i.prev-arrow {
+        left: calc(10 * var(--screen-w));
+      }
+      .slick-list {
+        height: 100%;
+        .slick-track {
+          height: 100%;
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

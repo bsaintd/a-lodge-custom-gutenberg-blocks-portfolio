@@ -1,0 +1,7 @@
+.daterangepicker {
+  color: var(--almost-black) !important;
+  td.active,
+  td.active:hover {
+    background-color: var(--red) !important;
+  }
+}

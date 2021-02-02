@@ -1,0 +1,168 @@
+//desktop
+@media (min-width: $tablet-start) {
+  body.single-rooms,
+  body.single-amenities,
+  body.single-experiences {
+    article {
+      display: grid;
+      grid-template-columns: 57% 1fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        "gallery copy"
+        "gallery testimonial";
+      .carousel-gallery {
+        grid-area: gallery;
+      }
+      .entry-content {
+        .entry-title {
+          font-size: var(--h3-rem);
+          color: var(--almost-black);
+        }
+        padding: calc(60 * var(--screen-w)) calc(50 * var(--screen-w));
+        grid-area: copy;
+        background-color: var(--light-grey);
+        h1,
+        h3,
+        .copy {
+          max-width: calc(620 * var(--screen-w));
+        }
+        h1 {
+          font-size: var(--h4-rem);
+          color: var(--almost-black);
+        }
+        h3 {
+          font-size: var(--sheader1-rem);
+          color: var(--red);
+        }
+        ul {
+          padding-left: 1em;
+          margin: 1em 0;
+          li {
+            font-weight: 700;
+          }
+          li::before {
+            content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: var(--red); /* Change the color */
+            font-weight: bold; /* If you want it to be bold */
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1em; /* Also needed for space (tweak if needed) */
+            margin-left: -1em; /* Also needed for space (tweak if needed) */
+          }
+        }
+        .cta {
+          margin: calc(33 * var(--screen-w)) 0;
+        }
+      }
+      .carousel-gallery {
+        max-height: calc(950 * var(--screen-w));
+        i.prev-arrow,
+        i.next-arrow {
+          position: absolute;
+          top: 50%;
+          font-size: calc(50 * var(--screen-w));
+          transform: translateY(-50%);
+          z-index: 1;
+        }
+        i.next-arrow {
+          right: calc(30 * var(--screen-w));
+        }
+        i.prev-arrow {
+          left: calc(30 * var(--screen-w));
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  body.single-amenities,
+  body.single-experiences {
+    article .entry-content {
+      background-color: $white;
+    }
+  }
+}
+//mobile
+@media (max-width: $mobile-end) {
+  body.single-rooms,
+  body.single-amenities,
+  body.single-experiences {
+    article {
+      width: 100vw;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "gallery"
+        "copy";
+      .carousel-gallery {
+        grid-area: gallery;
+      }
+      .entry-content {
+        .entry-title {
+          font-size: var(--h6-rem);
+          color: var(--almost-black);
+        }
+        padding: calc(33 * var(--screen-w)) calc(40 * var(--screen-w));
+        grid-area: copy;
+        background-color: $light-grey;
+        @include bodycopy2();
+        h1 {
+          font-size: var(--h6-rem);
+          color: var(--almost-black);
+        }
+        h3 {
+          @include subheader2();
+        }
+        ul {
+          padding-left: 1em;
+          margin: 1em 0;
+          li {
+            font-weight: 700;
+          }
+          li::before {
+            content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: $red; /* Change the color */
+            font-weight: bold; /* If you want it to be bold */
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1em; /* Also needed for space (tweak if needed) */
+            margin-left: -1em; /* Also needed for space (tweak if needed) */
+          }
+        }
+        .cta {
+          display: block;
+          margin: calc(25 * var(--screen-w)) 0;
+        }
+      }
+      .carousel-gallery {
+        overflow: hidden;
+        i.prev-arrow,
+        i.next-arrow {
+          position: absolute;
+          top: 50%;
+          font-size: calc(50 * var(--screen-w));
+          transform: translateY(-50%);
+          z-index: 1;
+        }
+        i.next-arrow {
+          right: calc(30 * var(--screen-w));
+        }
+        i.prev-arrow {
+          left: calc(30 * var(--screen-w));
+        }
+        img {
+          width: 100vw;
+          height: 100%;
+        }
+      }
+    }
+  }
+  body.single-amenities,
+  body.single-experiences {
+    article .entry-content {
+      background-color: $white;
+    }
+  }
+}

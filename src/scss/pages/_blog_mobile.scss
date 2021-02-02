@@ -1,0 +1,203 @@
+@media only screen and (max-width: map_get($breakpoints, 'tablet')) {
+  body.blog,
+  body.education,
+  body.single-post,
+  body.search,
+  body.archive,
+  body.error404 {
+    main {
+      // layout concerns
+      display: grid;
+      grid-template-areas:
+        'hero'
+        'content'
+        'sidebar';
+      section.content {
+        grid-area: content;
+      }
+      section.blog-sidebar {
+        grid-area: sidebar;
+      }
+      section.hero {
+        grid-area: hero;
+      }
+      $from-left: calc( 277 * var(--screen-w));
+      // section concerns
+      section.hero {
+        // height: calc( 170 * var(--screen-w));
+        display: grid;
+        align-items: end;
+        justify-content: start;
+        background-color: $black;
+        padding: calc( 20 * var(--screen-w)) calc( 40 * var(--screen-w)) calc( 10 * var(--screen-w));
+        .background {
+          background-size: cover;
+          background-position: center;
+        }
+        h1 {
+          line-height: 1;
+          color: $white;
+          font-size: calc( 77 * var(--screen-w));
+          text-transform: uppercase;
+        }
+        h1 {
+          &::first-letter {
+            color: $red;
+          }
+        }
+      }
+      section.content {
+        h2.section-heading {
+          @include headings($h6size, $almost-black);
+          margin-top: calc( 35 * var(--screen-w));
+        }
+        .underline {
+          border-bottom: 1px solid $almost-black;
+        }
+        h2, h3, h4{
+          @include bodycopy1();
+          color: $mid-grey;
+          text-transform: none;
+          font-weight: 700;
+        }
+        padding: calc( 30 * var(--screen-w)) calc( 40 * var(--screen-w)) calc( 70 * var(--screen-w));
+        article {
+          margin-top: calc( 30 * var(--screen-w));
+          .post-thumbnail {
+            img {
+              @include coverImage();
+              height: calc( 260 * var(--screen-w));
+            }
+          }
+          a{
+            color: $blue;
+            &.read-more {
+              @include cta();
+              @include buttoncopy();
+              margin-top: calc( 35 * var(--screen-w));
+              display: block;
+            }
+          }
+        }
+        @include bodycopy2();
+        .more-link {
+          margin-top: calc( 35 * var(--screen-w));
+          @include cta();
+          display: block;
+          border: calc( 4 * var(--screen-w)) solid black;
+          padding: 1em;
+          font-weight: 700;
+          font-family: ff-enzo-web;
+        }
+        .entry-header {
+          h1,
+          h2,
+          h2,
+          a {
+            @include subheader2();
+            &.section-heading {
+              @include headings($h6size, $almost-black);
+            }
+          }
+          h3.author {
+            display: none;
+          }
+          h4 {
+            @include bodycopy2();
+            text-transform: capitalize;
+          }
+          margin-bottom: calc( 30 * var(--screen-w));
+        }
+        .entry-footer {
+          .post-navigation {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+      }
+      .search {
+        input[type='search'] {
+          border: 1px solid $grey400;
+          color: $grey250;
+          padding-left: calc( 20 * var(--screen-w));
+          height: calc( 56 * var(--screen-w));
+          border-radius: 0;
+          background-color: $almost-white;
+          width: 100%;
+        }
+        input[type='submit'] {
+          display: none;
+        }
+        i {
+          position: absolute;
+          right: calc( 20 * var(--screen-w));
+          z-index: 1;
+          line-height: calc( 56 * var(--screen-w));
+          color: $mid-grey;
+        }
+      }
+      section.blog-sidebar {
+        display: flex;
+        flex-direction: column;
+        .title,
+        .search,
+        .articles {
+          margin: 0 calc( 40 * var(--screen-w));
+        }
+        background-color: $light-grey;
+        padding: calc( 50 * var(--screen-w)) 0 calc( 60 * var(--screen-w));
+        h3 {
+          color: $almost-black;
+          font-size: calc( 30 * var(--screen-w));
+          margin-bottom: calc( 15 * var(--screen-w));
+          line-height: 0.73;
+          padding-left: calc( 8 * var(--screen-w));
+          border-left: $almost-black solid calc( 32 * var(--screen-w));
+        }
+        .articles {
+          padding-top: calc( 15 * var(--screen-w));
+          .posts {
+            a.archive-link {
+              display: block;
+              @include bodycopy($h8size, $mid-grey, $h8size * 2);
+              font-weight: 700;
+            }
+          }
+          .post {
+            margin-bottom: calc( 40 * var(--screen-w));
+            h4 {
+              margin-top: calc( 17 * var(--screen-w));
+            }
+            .post-img {
+              width: 100%;
+              height: calc( 200 * var(--screen-w));
+              background-size: cover;
+              background-position: center;
+            }
+          }
+        }
+      }
+      .results {
+        article {
+          margin-bottom: calc( 50 * var(--screen-w));
+          .content-container {
+            display: flex;
+            flex-direction: column;
+            .image {
+              width: 100%;
+              height: calc( 400 * var(--screen-w));
+              background-size: cover;
+              background-position: center;
+              margin-bottom: calc( 15 * var(--screen-w));
+            }
+          }
+          .entry-footer {
+            padding-top: calc( 30 * var(--screen-w));
+            grid-area: footer;
+          }
+        }
+      }
+    }
+  } // end body.blog, body.single-post, body.archive
+}

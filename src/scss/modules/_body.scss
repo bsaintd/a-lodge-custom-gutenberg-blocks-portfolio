@@ -1,0 +1,11 @@
+// styling for <body>
+body {
+  overflow-x: hidden;
+  // remove scrollable from <body> when mobile navigation menu is open
+  @media only screen and (max-width: map_get($breakpoints, 'tablet')){
+    &.noscroll {
+      position:fixed;
+      overflow: hidden;
+    }
+  }
+}

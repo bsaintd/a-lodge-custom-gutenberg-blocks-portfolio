@@ -1,0 +1,3 @@
+[submodule "date-range-app"]
+	path = date-range-app
+	url = git@github.com:fueledonbacon/alodge-date-range-app.git

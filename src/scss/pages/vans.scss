@@ -1,0 +1,248 @@
+// Vans Desktop Styling
+@media (min-width: $tablet-start) {
+  body.home,
+  body.adventure-vans {
+    // all sections
+    section {
+      padding: 0;
+    }
+
+    section.van-add-ons {
+      height: calc(401 * var(--screen-w));
+      .section-content {
+        display: grid;
+        height: 100%;
+        grid-template-columns: calc(745 * var(--screen-w)) 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "add-on-copy selections";
+        border-left: calc(54 * var(--screen-w)) solid var(--black-100);
+        align-items: center;
+        .van-add-on-content {
+          grid-area: add-on-copy;
+          padding: 0 calc(62 * var(--screen-w)) 0 calc(86 * var(--screen-w));
+          h2 {
+            --font-size: var(--h4-font-size);
+            color: var(--almost-black);
+          }
+          h3 {
+            font-size: var(--sheader2-rem);
+          }
+          .copy {
+            p {
+              @include bodycopy2();
+            }
+          }
+        }
+        // .van-add-on-list use with the van-add-on-list.php partial
+        .van-add-on-list {
+          grid-area: selections;
+          border-left: calc(3 * var(--screen-w)) solid $grey200;
+          padding: 0 calc(200 * var(--screen-w)) 0 calc(68 * var(--screen-w));
+          height: calc(254 * var(--screen-w));
+          ul {
+            column-count: 3;
+            li.add-on {
+              @include bodycopy($body1-size, $almost-black, $bodyLg-line-h);
+              font-weight: 700;
+              margin-bottom: calc(30 * var(--screen-w));
+              &:before {
+                content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                color: $red; /* Change the color */
+                font-weight: bold; /* If you want it to be bold */
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 1em; /* Also needed for space (tweak if needed) */
+              }
+            }
+          }
+        }
+      }
+    } // END section.van-add-ons
+
+    section.map {
+      height: calc(500 * var(--screen-w));
+      .background {
+        @include bg-cover-center;
+      }
+      .adventure-map {
+        height: 100%;
+        h2 {
+          --font-size: var(--h4-font-size);
+          color: var(--almost-black);
+          text-align: center;
+          padding-top: calc(55 * var(--screen-w));
+        }
+        .google-maps-link {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          a.cta {
+            height: 100%;
+            width: 100%;
+            color: transparent;
+            background-color: transparent;
+            border: 0px solid transparent;
+            padding: 0;
+            content: "";
+          }
+        }
+      }
+    } // END section.map
+
+    section.faq {
+      padding: calc(74 * var(--screen-w)) calc(278 * var(--screen-w));
+      overflow: auto;
+      .section-content {
+        h2 {
+          --font-size: var(--h4-font-size);
+          color: var(--almost-black);
+          text-align: center;
+          margin-bottom: calc(78 * var(--screen-w));
+        }
+        .questions {
+          h3 {
+            @include bodycopy(38, $almost-black, 50);
+            display: inline-block;
+            float: left;
+            width: 50%;
+            padding-right: 1rem;
+          }
+          .copy {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            margin-bottom: calc(20 * var(--screen-w));
+            p {
+              @include bodycopy(26, $almost-black, 35);
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    } //END section.faq
+  } // END body.adventure-vans
+} // END desktop only media query
+
+// Vans Mobile Styling
+@media (max-width: $mobile-end) {
+  body.home,
+  body.adventure-vans {
+    // all sections
+    section {
+      padding: 0;
+    }
+
+    section.van-add-ons {
+      .section-content {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+          "add-on-copy"
+          "selections ";
+        border-top: calc(32 * var(--screen-w)) solid $black-100;
+        .van-add-on-content {
+          grid-area: add-on-copy;
+          padding: calc(48 * var(--screen-w)) calc(40 * var(--screen-w)) 0;
+          h2 {
+            font-size: var(--h6-2-rem);
+            color: var(--almost-black);
+          }
+          h3 {
+            @include subheaders($sheader4-size, $dark-red, $sheader4-line-h);
+          }
+          .copy {
+            p {
+              @include bodycopy($body3-size, $almost-black, $body3-line-h);
+            }
+          }
+        }
+        // .van-add-on-list use with the van-add-on-list.php partial
+        .van-add-on-list {
+          grid-area: selections;
+          padding: calc(36 * var(--screen-w)) calc(60 * var(--screen-w)) calc(60 * var(--screen-w));
+          ul {
+            li.add-on {
+              @include bodycopy($bodyLg-size, $almost-black, $bodyLg-line-h);
+              font-weight: 700;
+              margin-bottom: calc(23 * var(--screen-w));
+              &:before {
+                content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                color: $red; /* Change the color */
+                font-weight: bold; /* If you want it to be bold */
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 1em; /* Also needed for space (tweak if needed) */
+                // margin-left: -1em; /* Also needed for space (tweak if needed) */
+              }
+            }
+          }
+        }
+      }
+    } // END section.van-add-ons
+
+    section.map {
+      .background {
+        @include bg-cover-center;
+        margin-top: calc(68 * var(--screen-w));
+        height: calc(381 * var(--screen-w));
+      }
+      .adventure-map {
+        display: grid;
+        grid-template-rows: calc(68 * var(--screen-w)) calc(381 * var(--screen-w));
+        grid-template-areas:
+          "title   "
+          "map-link";
+        h2 {
+          grid-area: title;
+          height: 100%;
+          font-size: var(--h6-2-rem);
+          color: var(--light-grey);
+          background-color: var(--almost-black);
+          text-align: center;
+          line-height: calc(68 * var(--screen-w));
+        }
+        .google-maps-link {
+          grid-area: map-link;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          a.cta {
+            height: 100%;
+            width: 100%;
+            color: transparent;
+            background-color: transparent;
+            border: 0px solid transparent;
+            padding: 0;
+            content: "";
+          }
+        }
+      }
+    } // END section.map
+
+    section.faq {
+      padding: calc(48 * var(--screen-w)) calc(40 * var(--screen-w)) calc(56 * var(--screen-w));
+      .section-content {
+        h2 {
+          font-size: var(--h6-2-rem);
+          color: var(--almost-black);
+          text-align: center;
+        }
+        .questions {
+          h3 {
+            @include bodycopy($bodyLg-size, $almost-black, $body3-line-h);
+            padding-top: calc(22 * var(--screen-w));
+          }
+          .copy {
+            margin-bottom: calc(20 * var(--screen-w));
+            p {
+              @include bodycopy($body3-size, $almost-black, $body3-line-h);
+            }
+          }
+        }
+      }
+    } //END section.faq
+  } // END body.adventure-vans
+} // END mobile only media query

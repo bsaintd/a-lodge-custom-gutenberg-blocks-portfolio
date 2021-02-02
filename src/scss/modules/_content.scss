@@ -1,0 +1,15 @@
+#content{
+  z-index: 1;
+  transition: filter .5s ease;
+  // @media only screen and (max-width: map_get($breakpoints, 'tablet')){
+  //   &.mobile-nav-blur {
+  //     filter: blur(5px);
+  //   }
+  // }
+  #primary, #secondary{
+    padding: 0;
+  }
+  #secondary{
+    display: none;
+  }
+}

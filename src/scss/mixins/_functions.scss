@@ -1,0 +1,51 @@
+// Viewport based pixel to vw/vh functions for sizing and positioning elements based on project mocks.
+$mobile-mocks-width: 414;
+$desktop-mocks-width: 1920;
+$desktop-mocks-height: 1080;
+@function dvw($pixels){
+  @return $pixels / $desktop-mocks-width * 100vw;
+}
+@function dvh($pixels){
+  @return $pixels / $desktop-mocks-height * 100vh;
+}
+@function mvw($pixels){
+  @return $pixels / $mobile-mocks-width * 100vw;
+}
+
+// z-index values that are trackable, name-spaced
+// eg: div.myclass { z-index: z('top'); }
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+$z-indexes: (
+    "top",
+    "above-middle",
+    "middle",
+    "below-middle",
+    "bottom"
+);
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
+// strips the css size unit from a value for computational use...
+// like for use w/ dynamic font sizing
+// strip-unit(30px)
+// returns 30
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}

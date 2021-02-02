@@ -1,0 +1,61 @@
+.wp-block-alodge-button a{
+  cursor: pointer;
+  --color: var(--almost-black);
+  --background-color: transparent;
+  --border-color: var(--almost-black);
+
+  --padding: .7rem 1rem;
+  --border-width: .2rem;
+  --min-width: max-content;
+
+  @media(min-width: $tablet-start){
+    --padding: .7rem 1.5rem;
+    --min-width: calc(210 / 1920 * 100vw);
+  }
+
+  width: max-content;
+  min-width: var(--min-width);
+
+  color: var(--color);
+  padding: var(--padding);
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+
+  border-style: solid;
+  border-radius: 0;
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+
+  background-color: var(--background-color);
+  &.is-style-hollow-white{
+     --color: var(--white);
+     --border-color: var(--white);
+     &:hover{
+       --background-color: var(--white);
+       --color: var(--almost-black);
+     }
+  }
+
+  &.is-style-hollow-black{
+
+  }
+
+  &:hover{
+    --background-color: var(--almost-black);
+    --color: var(--white);
+  }
+}
+// styling for <button> (all button styles for project)
+@mixin cta($btn-color: $almost-black, $btn-background: transparent, $border: true, $hover-bg: $almost-black, $hover-color: $white){
+  &:hover{
+    color: $hover-color;
+    @if $btn-background == transparent{
+      background-color: $btn-color;
+    } @else {
+      background-color: $hover-bg;
+      border-color: $hover-bg;
+    }
+  }
+}

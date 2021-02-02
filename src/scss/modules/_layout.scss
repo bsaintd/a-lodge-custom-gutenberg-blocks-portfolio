@@ -1,0 +1,60 @@
+// this module is for arranging the overall layout of a page at the global level
+// main content only, shrink header/footer
+.main-content-only {
+  display: flex;
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .main {
+    flex-grow: 1;
+  }
+}
+#page{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: calc( 122 * var(--screen-w)) 1fr auto;
+  grid-template-areas:
+    "content"
+    "content"
+    "footer";
+  min-height: 100vh;
+  width: 100%;
+
+  #content{
+    margin-top: calc( 122 * var(--screen-w)); // sames as the height of the navbar
+    /* position in containing grid */
+    grid-area: content;
+    /* arrange grid at next level down */
+    display: flex;
+    flex-direction: column;
+
+    #primary{
+      /* the main content area */
+    }
+
+    #secondary{
+      /* the widgets. we usually don't need this */
+      display: none;
+    }
+  }
+  .site-footer{
+    grid-area: footer;
+  }
+}
+
+@media only screen and (max-width: $mobile-end) {
+  #page{
+    grid-template-rows: calc( 58 * var(--screen-w)) 1fr auto;
+    #content{
+      margin-top: calc( 58 * var(--screen-w));
+      flex-direction: column;
+    }
+  }
+}

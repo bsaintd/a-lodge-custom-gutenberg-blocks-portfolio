@@ -1,0 +1,49 @@
+// Global Color Variables
+
+// From Project Style Guide
+$black: #000;
+$almost-black: #212121;
+$dark-grey: #3e3e40;
+$mid-grey: #6f6f6f;
+$light-grey: #ededed;
+$almost-white: #f8f8f8;
+$white: #fff;
+$dark-red: #ad1d22;
+$red: #dc1f26;
+$light-red: #fd3d44;
+$yellow: #f5b55a;
+$blue: #386e95;
+
+// Additional Color Definitions
+$grey200: #707070;
+$grey250: #bebebe;
+$grey300: #c7c7c7;
+$grey400: #d8d8d8;
+$black-100: #292929;
+$red-100: #dc1e24;
+
+:root {
+  --black: #000;
+  --light-red: #fd3d44;
+  --red: #dc1f26;
+  --dark-red: #ad1d22;
+
+  --light-grey: #ededed;
+  --light-grey-transparent: hsla(0,0%,93%,.85);
+  --white: #f8f8f8;
+  --mid-grey: #6f6f6f;
+  --dark-grey: #3e3e40;
+  --almost-black: #212121;
+  --almost-white: #f8f8f8;
+
+  --yellow: #f5b55a;
+  --blue: #386e95;
+
+  // Additional Color Definitions
+  --grey200: #707070;
+  --grey250: #bebebe;
+  --grey300: #c7c7c7;
+  --grey400: #d8d8d8;
+  --black-100: #292929;
+  --red-100: #dc1e24;
+}

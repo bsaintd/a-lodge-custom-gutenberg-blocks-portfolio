@@ -1,0 +1,13 @@
+// creating scalable (aspect ratio locked) ELEMENTS (usually images / background images)
+// eg: @include responsive-ratio(16,9);
+@mixin ratio-element($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  padding-top: $padding;
+}
+
+// creating scalable (aspect ratio locked) SECTIONS (divs, etc..)
+// eg: @include responsive-ratio(16,9);
+@mixin ratio-block($x,$y, $pseudo: false) {
+  $height: unquote( ( $y / $x ) * 100 + 'vw' );
+  height: $height;
+}

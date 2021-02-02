@@ -1,0 +1,24 @@
+// center x for block and inline-block elements
+@mixin block-x-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+// cover x & y for absolutely positioned elements (bg images may distort)
+@mixin absolute-cover {
+  @include position (absolute, 0 0 0 0);
+}
+// center x & y for absolutely positioned elements
+@mixin transform-xy-center {
+  @include position (absolute, 50% unset unset 50%);
+  transform: translate(-50%, -50%);
+}
+// center x only for absolutely positioned elements
+@mixin transform-x-center {
+  @include position (absolute, initial unset initial 50%);
+  transform: translateX(-50%);
+}
+// center y only for absolutely positioned elements
+@mixin transform-y-center {
+  @include position (absolute, 50% initial unset initial);
+  transform: translateY(-50%);
+}

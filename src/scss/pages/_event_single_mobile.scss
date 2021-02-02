@@ -1,0 +1,22 @@
+// Calendar Single Event Mobile Styling
+@media only screen and (max-width: map_get($breakpoints, 'tablet')){
+  body.single-mec-events{
+    .mec-container{
+      padding-bottom: calc( 40 * var(--screen-w));
+      h1.mec-single-title{@include headings($h5size, $almost-black);}
+      .col-md-4{
+        section.widget{display: none;}
+      }
+    }
+    // hide footer calendar on calendar archive page (styling collisions)
+    .site-footer{
+      .footer-components{
+        .calendar-title,
+        .footer-cal{display: none;}
+        .contact-us{
+          .copy{border-bottom: none;}
+        }
+      }
+    }
+  } // END body.single-mec-events
+} // END mobile only media query

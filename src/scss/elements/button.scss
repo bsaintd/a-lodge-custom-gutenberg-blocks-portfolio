@@ -1,0 +1,102 @@
+// styling for <button> (all button styles for project)
+@mixin cta(
+  $btn-color: $almost-black,
+  $btn-background: transparent,
+  $border: true,
+  $hover-bg: $almost-black,
+  $hover-color: $white
+) {
+  color: $btn-color;
+  display: inline-block;
+  // padding: calc( 20 * var(--screen-w)) calc( 40 * var(--screen-w));
+  padding: 0.7rem 1.5rem;
+  min-width: calc(207 * var(--screen-w));
+  background-color: $btn-background;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  border-width: 0.2rem;
+  border-style: solid;
+  border-radius: 0;
+  cursor: pointer;
+  @if $border == true {
+    border-color: $btn-color;
+  } @else {
+    border-color: $btn-background;
+  }
+  &:hover {
+    color: $hover-color;
+    @if $btn-background == transparent {
+      background-color: $btn-color;
+    } @else {
+      background-color: $hover-bg;
+      border-color: $hover-bg;
+    }
+  }
+  @media (max-width: $mobile-end) {
+    padding: 0.7rem 1rem;
+  }
+}
+
+// button styles
+a.cta,
+button.cta[type="submit"],
+button.cta,
+.wp-block-alodge-button a.cta{
+  cursor: pointer;
+  --color: var(--almost-black);
+  --background-color: transparent;
+  --border-color: var(--almost-black);
+
+  --padding: 0.7rem 1rem;
+  --border-width: 0.2rem;
+  --min-width: max-content;
+  --font-size: 1rem;
+
+  @media (min-width: $tablet-start) {
+    --padding: 0.7rem 1.5rem;
+    --border-width: calc(4 / 1920 * 100vw);
+    --min-width: calc(210 / 1920 * 100vw);
+  }
+
+  width: max-content;
+  min-width: var(--min-width);
+
+  color: var(--color);
+  padding: var(--padding);
+  font-size: var(--font-size);
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+
+  border-style: solid;
+  border-radius: 0;
+  border-color: var(--border-color);
+  border-width: var(--border-width);
+
+  background-color: var(--background-color);
+
+  &.is-style-hollow-white {
+    --color: var(--white);
+    --border-color: var(--white);
+    &:hover {
+      --background-color: var(--white);
+      --color: var(--almost-black);
+    }
+  }
+
+  &:hover {
+    --background-color: var(--almost-black);
+    --color: var(--white);
+  }
+}
+
+.wp-block-alodge-button.is-style-hollow-white a.cta {
+  --color: var(--white);
+  --border-color: var(--white);
+  &:hover {
+    --background-color: var(--white);
+    --color: var(--almost-black);
+  }
+}

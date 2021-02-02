@@ -1,0 +1,211 @@
+.wp-block-alodge-alternating-section {
+  --px8: calc(8 * var(--screen-w));
+  --px16: calc(16 * var(--screen-w));
+  --px40: calc(40 * var(--screen-w));
+  --px60: calc(60 * var(--screen-w));
+  --px80: calc(80 * var(--screen-w));
+  --px140: calc(140 * var(--screen-w));
+  --px240: calc(240 * var(--screen-w));
+
+  --grid-rows: 6.44vw 1fr;
+
+  --grid-cols-content-right: 1fr 42%;
+  --grid-cols-content-left: 42% 1fr;
+
+  --grid-areas: "title   " "subtitle" ".       " "body    ";
+
+  --h3-padding: var(--px8) var(--px16) 0 var(--px16);
+  --content-padding: var(--px60) var(--px140) var(--px40);
+
+  --margin: .3rem;
+  margin: var(--margin) 0;
+
+  h1 {
+    @include likeh1;
+  }
+
+  .background {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+  .section-inner {
+    display: grid;
+  }
+  .copy {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+  .actions {
+    display: flex;
+    & > div {
+      margin-right: 0.5em;
+    }
+  }
+
+  @media (min-width: $tablet-start) {
+    --grid-areas-left: "subtitle title" "copy     .    ";
+    --grid-areas-right: "title subtitle" ".     copy    ";
+
+    &:nth-of-type(even) {
+      .background {
+        right: 0;
+        left: auto;
+        background-position: center;
+      }
+      .section-inner {
+        grid-template-columns: var(--grid-cols-content-left);
+        grid-template-areas: var(--grid-areas-left);
+        h1 {
+          text-align: left;
+        }
+        & > h3 {
+          text-align: right;
+        }
+      }
+    }
+
+    &:nth-of-type(odd) {
+      .background {
+        background-position: left center;
+      }
+      .section-inner {
+        grid-template-columns: var(--grid-cols-content-right);
+        grid-template-areas: var(--grid-areas-right);
+        h1 {
+          text-align: right;
+        }
+        & > h3 {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $tablet-start) {
+    --grid-rows: 6.44vw 1fr;
+    --grid-cols: 42% 1fr;
+
+    --h3-padding: var(--px8) var(--px16) 0 var(--px16);
+    --content-padding: var(--px60) var(--px140) var(--px40);
+
+    min-height: 28vw;
+    background-color: var(--light-grey);
+    .background {
+      width: 62%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: cover;
+    }
+    .section-inner {
+      grid-template-rows: var(--grid-rows);
+      grid-template-columns: var(--grid-cols);
+      display: grid;
+      h1 {
+        grid-area: title;
+        line-height: 0.7em;
+        align-self: start;
+      }
+      > h3 {
+        grid-area: subtitle;
+        background-color: var(--red);
+        font-size: var(--h4-rem);
+        height: 100%;
+        padding: var(--h3-padding);
+      }
+      .content-area {
+        grid-area: copy;
+        padding: var(--content-padding);
+        h3 {
+          @include subheader1();
+        }
+        p {
+          @include bodycopy2();
+          margin-top: calc(14 * var(--screen-w));
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile-end) {
+    background-color: var(--light-grey);
+    .background {
+      height: calc(374 * var(--screen-w));
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+    }
+    .section-inner {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto auto calc(235 * var(--screen-w)) auto;
+      grid-template-areas: var(--grid-areas);
+      h1 {
+        grid-area: title;
+        font-size: var(--h2-5-rem);
+        margin: calc(15 * var(--screen-w)) 0 0 calc(15 * var(--screen-w));
+        span.just-vans {
+          display: none;
+        }
+      }
+      > h3 {
+        grid-area: subtitle;
+        background-color: var(--red);
+        font-size: var(--h7-5-rem);
+        height: 100%;
+        padding: calc(7 * var(--screen-w)) calc(40 * var(--screen-w))
+          calc(2 * var(--screen-w)) calc(5 * var(--screen-w));
+        margin: calc(7 * var(--screen-w)) 0 0 calc(60 * var(--screen-w));
+      }
+      .content-area {
+        grid-area: body;
+        padding: calc(16 * var(--screen-w)) calc(40 * var(--screen-w))
+          calc(40 * var(--screen-w));
+        h3 {
+          font-size: var(--sheader3-rem);
+          color: var(--almost-black);
+          padding-right: calc(15 * var(--screen-w));
+        }
+        p {
+          font-size: var(--body3-rem);
+          margin: calc(15 * var(--screen-w)) calc(-2 * var(--screen-w))
+            calc(30 * var(--screen-w));
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-height: $aspect8-5 + 5vw) and (min-height: $aspect16-9 - 5vw) {
+    // all sections
+    --screen-w: calc(100vh / 1080);
+    .section-inner {
+      h1 {
+        font-size: 13.3vh;
+      }
+      > h3 {
+        font-size: 4vh !important;
+      }
+
+      h1 {
+        margin-right: 0vw;
+      }
+      > h3 {
+        padding-top: var(--px8);
+      }
+      .content-area {
+        padding-top: var(--px60);
+        padding-bottom: var(--px60);
+
+        p {
+          margin-top: var(--px16);
+        }
+        .actions {
+          margin-top: var(--px16);
+        }
+      }
+      grid-template-rows: 9.5vh 1fr;
+    }
+  }
+}

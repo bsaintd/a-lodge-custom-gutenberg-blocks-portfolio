@@ -1,0 +1,18 @@
+.wp-block-alodge-about-content-section{
+  --margin: calc(67 * var(--screen-w)) 0;
+  margin: var(--margin);
+  h4.heading{
+    --x: 140;
+    --gap: 15;
+    border-left: calc(calc(var(--x) - var(--gap)) * var(--screen-w)) solid black;
+    padding-left: calc(var(--gap) * var(--screen-w));
+    line-height: .73;
+    position: relative;
+    left: calc(-1 * var(--x) * var(--screen-w));
+    margin-bottom: .5rem;
+  }
+  h3{
+    font-size: var(--sheader2-rem);
+    color: var(--dark-red);
+  }
+}

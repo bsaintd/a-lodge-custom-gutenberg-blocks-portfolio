@@ -1,0 +1,6 @@
+#snackbar.center-style {
+  @include bodycopy($body2-size, $white, $body2-line-h);
+  @media only screen and (max-width: map_get($breakpoints, 'tablet')){
+    @include bodycopy($body3-size, $white, $body3-line-h);
+  }
+}

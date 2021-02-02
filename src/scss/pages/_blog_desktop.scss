@@ -1,0 +1,22 @@
+@media (min-width: $tablet-start) {
+  body.blog,
+  body.single-post,
+  body.archive {
+    .articles-area {
+      display: grid;
+      grid-template-areas:
+        "heading search"
+        "articles search";
+      grid-template-columns: 67% 33%;
+      h2 {
+        grid-area: heading;
+      }
+      .blog-list {
+        grid-area: articles;
+      }
+      .search-menu {
+        grid-area: search;
+      }
+    }
+  }
+}

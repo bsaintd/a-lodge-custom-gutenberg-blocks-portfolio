@@ -1,0 +1,6 @@
+section{
+	padding: 0 calc( 140 * var(--screen-w));
+	@media only screen and (max-width: $mobile-end) {
+		padding: 0 calc( 40 * var(--screen-w));
+	}
+}

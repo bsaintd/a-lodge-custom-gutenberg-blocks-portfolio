@@ -1,0 +1,226 @@
+@media (max-width: $mobile-end) {
+  .site-footer {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "footer-components"
+      "bottom-bar";
+    .components-container {
+      grid-area: footer-components;
+      padding: 0;
+    }
+    .bottom-bar {
+      grid-area: bottom-bar;
+      width: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+      .copyright {
+        @include bodycopy(11, $grey200, 13);
+        text-align: center;
+        padding: calc(10 * var(--screen-w)) calc(20 * var(--screen-w)) calc(15 * var(--screen-w));
+      }
+      .footer-links {
+        width: 100%;
+        text-align: center;
+        ul {
+          @include set-flex(inline-flex, row, wrap);
+          justify-content: center;
+          padding: calc(10 * var(--screen-w)) 0;
+          li {
+            padding: calc(10 * var(--screen-w)) calc(15 * var(--screen-w)) 0;
+          }
+          a {
+            @include headings(14, $mid-grey);
+          }
+        }
+      }
+    }
+    /** project specific footer components */
+    .footer-components {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-areas:
+        "newsletter"
+        "contact-us"
+        "cal-title "
+        "cal-plugin"
+        "about-us ";
+      .about-us {
+        grid-area: about-us;
+      }
+      .newsletter-signup {
+        grid-area: newsletter;
+      }
+      .contact-us {
+        grid-area: contact-us;
+      }
+      .calendar-title {
+        grid-area: cal-title;
+      }
+      .footer-cal {
+        grid-area: cal-plugin;
+      }
+
+      --about-us-padding: 2rem 2rem 2rem 1rem;
+      .about-us {
+        .background {
+          display: none;
+        }
+        border-left: calc(20 * var(--screen-w)) solid $red;
+        h2 {
+          --font-size: var(--h5-font-size);
+          --color: var(--red);
+          margin-bottom: calc(8 * var(--screen-w));
+        }
+        h3 {
+          --font-size: var(--h7-font-size);
+          --color: var(--white);
+        }
+        .footer-ig,
+        .footer-fb,
+        .footer-twitter,
+        .footer-trip-advisor {
+          display: inline-block;
+          width: calc(38 * var(--screen-w));
+          height: calc(38 * var(--screen-w));
+          margin-top: calc(30 * var(--screen-w));
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          a.cta {
+            content: "";
+            min-width: unset;
+            padding: 0;
+            border: 0px solid transparent;
+            background-color: transparent;
+            &:hover {
+              background-color: transparent;
+            }
+          }
+        }
+        .footer-ig {
+          margin-left: 13vw;
+        }
+        .footer-ig,
+        .footer-fb {
+          margin-right: calc(15 * var(--screen-w));
+        }
+        .footer-twitter {
+          margin-right: calc(25 * var(--screen-w));
+        }
+      }
+
+      .newsletter-signup {
+        padding: calc(45 * var(--screen-w)) calc(40 * var(--screen-w)) calc(40 * var(--screen-w));
+        input {
+          font-size: calc(20 * var(--screen-w));
+          padding: 0.75em;
+          margin-bottom: calc(16 * var(--screen-w));
+          width: 100%;
+          &[type="submit"] {
+            @include cta($white, $mid-grey, false);
+            font-weight: 700;
+            padding-top: 0.75em;
+            padding-bottom: 0.75em;
+            display: block;
+          }
+        }
+      }
+
+      .newsletter-signup,
+      .contact-us {
+        p {
+          @include bodycopy($body2-size, $mid-grey, $body2-line-h);
+        }
+      }
+
+      .contact-us {
+        padding: 0 calc(40 * var(--screen-w));
+        h3 {
+          border-top: 2px solid var(--mid-grey);
+          padding-top: calc(40 * var(--screen-w));
+        }
+        .copy {
+          border-bottom: 2px solid var(--mid-grey);
+          padding-bottom: calc(35 * var(--screen-w));
+          a,
+          a:visited,
+          a:hover {
+            color: unset;
+          }
+        }
+      }
+
+      .newsletter-signup,
+      .contact-us,
+      .calendar-title {
+        background-color: var(--light-grey);
+        h2 {
+          font-size: var(--h5-font-size);
+          color: var(--mid-grey);
+        }
+        h3 {
+          font-size: var(--h7-font-size);
+          color: var(--almost-black);
+        }
+      }
+
+      .calendar-title {
+        padding: calc(40 * var(--screen-w)) calc(40 * var(--screen-w)) calc(25 * var(--screen-w));
+      }
+
+      .footer-cal {
+        position: relative;
+        padding: 0 calc(40 * var(--screen-w));
+        background-color: var(--light-grey);
+        .footer-cal-link {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: calc(63 * var(--screen-w));
+          z-index: z("top");
+        }
+        .mec-wrap {
+          .mec-calendar {
+            border: none;
+            box-shadow: none;
+            margin: 0 0 calc(63 * var(--screen-w));
+            .mec-calendar-topsec {
+              background-color: $almost-white;
+              .mec-calendar-side {
+                background-color: var(--white);
+                border: 1px solid $grey250;
+                padding: calc(16 * var(--screen-w));
+                .mec-skin-monthly-view-month-navigator-container {
+                  .mec-month-navigator {
+                    .mec-calendar-header {
+                      margin: 0;
+                      padding: 0;
+                      width: 100%;
+                      h2 {
+                        font-family: "TradeGothic Bold Condensed", sans-serif;
+                        margin: 0 0 calc(20 * var(--screen-w));
+                      }
+                    }
+                    .mec-previous-month,
+                    .mec-next-month {
+                      display: none;
+                    }
+                  }
+                }
+              }
+              .mec-calendar-events-side {
+                display: none;
+              }
+            }
+            .mec-event-footer {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

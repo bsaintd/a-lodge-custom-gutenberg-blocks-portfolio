@@ -1,0 +1,615 @@
+// TYPOGRAPHY STYLING
+// IMPORT & DEFINE PROJECT FONTS
+//// Trade Gothic (FontShop/LinoType) - Bold:700, Bold Condensed:700
+@import url("https://fast.fonts.net/lt/1.css?apiType=css&c=0b264d17-c45f-4208-85bf-0fe38d3c79fa&fontids=5730917,5730950");
+@font-face {
+  font-family: "TradeGothic Bold";
+  src: url("/wp-content/plugins/alodge/fonts/trade-gothic-bold/font.woff2")
+      format("woff2"),
+    url("/wp-content/plugins/alodge/fonts/trade-gothic-bold/font.woff")
+      format("woff"),
+    url("/wp-content/plugins/alodge/fonts/trade-gothic-bold/font.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "TradeGothic Bold Condensed";
+  src: url("/wp-content/plugins/alodge/fonts/trade-gothic-bold-condensed/font.eot")
+      format("eot"),
+    url("/wp-content/plugins/alodge/fonts/trade-gothic-bold-condensed/font.woff2")
+      format("woff2"),
+    url("/wp-content/plugins/alodge/fonts/trade-gothic-bold-condensed/font.woff")
+      format("woff"),
+    url("/wp-content/plugins/alodge/fonts/trade-gothic-bold-condensed/font.ttf")
+      format("truetype");
+}
+//// FF Enzo (Adobe Font) - Medium:600, Bold:700 &
+//// Merriweather (Adobe Font) - Regular: 400
+@import url("https://use.typekit.net/yma3gze.css");
+////Icons (Google - Material Design)
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/wp-content/plugins/alodge/fonts/material-design-icons/font.woff2")
+      format("woff2"),
+    url("/wp-content/plugins/alodge/fonts/material-design-icons/font.woff")
+      format("woff"),
+    url("/wp-content/plugins/alodge/fonts/material-design-icons/font.ttf")
+      format("truetype");
+}
+
+//// MATERIAL ICONS
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.3rem; // Preferred icon size?
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  // Support for all WebKit browsers
+  -webkit-font-smoothing: antialiased;
+  // Support for Safari and Chrome
+  text-rendering: optimizeLegibility;
+  // Support for Firefox
+  -moz-osx-font-smoothing: grayscale;
+  // Support for IE
+  font-feature-settings: "liga";
+}
+// TYPOGRAPHY MIXINS
+//// HEADINGS
+@mixin headings($font_size, $font_color: $light-grey) {
+  font-family: "TradeGothic Bold Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1;
+  color: $font_color;
+}
+
+@mixin heading-style() {
+  font-family: "TradeGothic Bold Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+$h1size: 173;
+$h2size: 110;
+$h2-5size: 77;
+$h3size: 73;
+$h4size: 55;
+$h5size: 50;
+$h6size: 36;
+$h6_2size: 34;
+$h7size: 31;
+$h7-5size: 25;
+$h8size: 21;
+
+:root {
+  --h1: 173;
+  --h1-rem: 7.86rem;
+  --h1-font-size: calc(var(--h1) * var(--screen-w));
+
+  --h2: 110;
+  --h2-rem: 5rem;
+  --h2-font-size: calc(var(--h2) * var(--screen-w));
+
+  --h2-5: 77;
+  --h2-5-rem: 3.5rem;
+
+  --h3: 73;
+  --h3-rem: 3.31rem;
+  --h3-font-size: calc(var(--h3) * var(--screen-w));
+
+  --h4: 55;
+  --h4-rem: 2.5rem;
+  --h4-font-size: calc(var(--h4) * var(--screen-w));
+
+  --h5: 50;
+  --h5-rem: 2.27rem;
+  --h5-font-size: calc(var(--h5) * var(--screen-w));
+
+  --h6: 36;
+  --h6-rem: 1.63rem;
+  --h6-font-size: calc(var(--h6) * var(--screen-w));
+
+  --h6-2: 34;
+  --h6-2-rem: 1.54rem;
+
+  --h7: 31;
+  --h7-rem: 1.4rem;
+  --h7-font-size: calc(var(--h7) * var(--screen-w));
+  --h7-5: 25;
+  --h7-5-rem: 1.13rem;
+  --h7-5-font-size: calc(var(--h7-5) * var(--screen-w));
+
+  --h8: 21;
+  --h8-rem: 0.95rem;
+  --h8-font-size: calc(var(--h8) * var(--screen-w));
+
+  --sheaderLg-size: 32;
+  --sheaderLg-rem: 1.45rem;
+  --sheaderLg-line-h: 42;
+
+  --sheader1-size: 30;
+  --sheader1-rem: 1.36rem;
+  --sheader1-line-h: 35;
+
+  --sheader2-size: 26;
+  --sheader2-rem: 1.2rem;
+  --sheader2-line-h: 34;
+
+  --sheader3-size: 24;
+  --sheader3-rem: 1.1rem;
+  --sheader3-line-h: 30;
+
+  --sheader4-size: 22;
+  --sheader4-rem: 1rem;
+  --sheader4-line-h: 27;
+
+  --sheader5-size: 18;
+  --sheader5-size: 0.9rem;
+
+  --bodyLg-size: 24;
+  --bodyLg-line-h: 34;
+  --bodyLg-rem: 1.1rem;
+
+  --body1-size: 22;
+  --body1-rem: 1rem;
+  --body1-line-h: 30;
+
+  --body2-size: 20;
+  --body2-rem: 0.9rem;
+  --body2-line-h: 27;
+
+  --body3-size: 18;
+  --body3-rem: 0.81rem;
+  --body3-line-h: 25;
+
+  --default-line-height: 1.35;
+}
+
+html {
+  --rem: calc(22 * var(--screen-w));
+  &.px {
+    --rem: 22px;
+  }
+  font-size: var(--rem);
+  line-height: var(--default-line-height);
+}
+
+//// SUBHEADERS
+$sheaderLg-size: 32;
+$sheaderLg-line-h: 42;
+$sheader1-size: 30;
+$sheader1-line-h: 35;
+$sheader2-size: 26;
+$sheader2-line-h: 34;
+$sheader3-size: 24;
+$sheader3-line-h: 30;
+$sheader4-size: 22;
+$sheader4-line-h: 27;
+$sheader5-size: 18;
+
+@mixin subheaders($font_size, $font_color, $line_height) {
+  font-family: merriweather, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  color: $font_color;
+  font-size: dvw($font_size);
+  line-height: dvw($line_height);
+  @media only screen and (max-width: $mobile-end) {
+    font-size: mvw($font_size);
+    line-height: mvw($line_height);
+  }
+}
+.subheaders {
+  font-family: merriweather, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  --font-size: var(--sheader1-rem);
+  font-size: var(--font-size);
+  &.lg {
+    --font-size: var(--sheaderLg-rem);
+  }
+  &.s2 {
+    --font-size: var(--sheader2-rem);
+  }
+  &.s3 {
+    --font-size: var(--sheader3-rem);
+  }
+}
+
+:root {
+  --subheading-font-family: merriweather, serif;
+  --subheading-font-weight: 400;
+  --subheading-font-style: normal;
+  --subheading-text-transform: none;
+  --subheading-letter-spacing: 0;
+  --subheading-line-height: 1.35;
+}
+
+@mixin subheading-style() {
+  font-family: merriweather, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+}
+@mixin subheader1() {
+  @include subheaders($sheader1-size, $almost-black, $sheader1-line-h);
+}
+@mixin subheader2() {
+  @include subheaders($sheader2-size, $dark-red, $sheader2-line-h);
+}
+//// BODY COPY
+$bodyLg-size: 24;
+$bodyLg-line-h: 34;
+$body1-size: 22;
+$body1-line-h: 30;
+$body2-size: 20;
+$body2-line-h: 27;
+$body3-size: 18;
+$body3-line-h: 25;
+
+@mixin bodycopy($font_size, $font_color, $line_height) {
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  color: $font_color;
+  font-size: dvw($font_size);
+  line-height: 1.35;
+  @media only screen and (max-width: $mobile-end) {
+    font-size: mvw($font_size);
+  }
+}
+
+.bodycopy {
+  --font-size: var(--body1-rem);
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1.35;
+  font-size: var(--font-size);
+  &.lg {
+    --font-size: var(--bodyLg-rem);
+  }
+  &.b2 {
+    --font-size: var(--body2-rem);
+  }
+  &.b3 {
+    --font-size: var(--body3-rem);
+  }
+}
+
+@mixin bodycopy-style() {
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+}
+@mixin bodycopy1() {
+  @include bodycopy($body1-size, $white, $body1-line-h);
+  p {
+    @include bodycopy($body1-size, $white, $body1-line-h);
+  }
+}
+@mixin bodycopy1dark() {
+  @include bodycopy($body1-size, $almost-black, $body1-line-h);
+  p {
+    @include bodycopy($body1-size, $almost-black, $body1-line-h);
+  }
+}
+@mixin bodycopy2() {
+  @include bodycopy($body2-size, $almost-black, $body2-line-h);
+  p {
+    @include bodycopy($body2-size, $almost-black, $body2-line-h);
+  }
+}
+@mixin bodycopy3() {
+  @include bodycopy($body3-size, $white, $body3-line-h);
+  p {
+    @include bodycopy($body3-size, $white, $body3-line-h);
+  }
+}
+//// AMENITIES/EXPERIENCES/LODGING HEADERS
+@mixin exp-headers() {
+  font-family: "TradeGothic Bold Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--white);
+  font-size: var(--h6-rem);
+  &:hover {
+    font-size: var(--h5-rem);
+  }
+}
+//// NAVBARS/EXPERIENCE SELECTOR
+@mixin expnavselector($font_color: $light-grey) {
+  font-family: "TradeGothic Bold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1;
+  color: $font_color;
+  font-size: 1rem;
+}
+//// INPUT FIELD COPY
+@mixin inputfieldcopy() {
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--mid-grey);
+  font-size: var(--body2-rem);
+  line-height: 1.4;
+}
+//// RIGHT NAV COPY
+@mixin rightnavcopy() {
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0;
+  color: $mid-grey;
+  font-size: var(--sheader2-rem);
+  line-height: 1.1;
+}
+//// BUTTON COPY
+@mixin buttoncopy() {
+  font-family: "TradeGothic Bold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: calc(20 * var(--screen-w));
+  letter-spacing: 0.05em;
+  line-height: 2;
+}
+
+@mixin likeh1() {
+  @include headings($h1size, $light-grey);
+}
+@mixin likeh2() {
+  @include headings($h2size, $light-grey);
+}
+@mixin likeh3() {
+  @include subheaders($h3size, $light-grey, $h3size);
+}
+@mixin likeh4() {
+  @include headings($h4size, $light-grey);
+}
+@mixin likeh4dark() {
+  @include headings($h4size, $almost-black);
+}
+@mixin likeh5() {
+  @include headings($h5size, $mid-grey);
+}
+@mixin likeh5red() {
+  @include headings($h5size, $red);
+}
+@mixin likeh6() {
+  @include headings($h6size, $light-grey);
+}
+@mixin likeh6dark() {
+  @include headings($h6size, $almost-black);
+}
+
+h1,
+.likeh1 {
+  --font-size: var(--h1-font-size);
+}
+
+h2,
+.likeh2 {
+  --font-size: var(--h2-font-size);
+}
+h3,
+.likeh3 {
+  --font-size: var(--h3-font-size);
+}
+h4,
+.likeh4 {
+  --font-size: var(--h4-font-size);
+}
+
+h5,
+.likeh5 {
+  --font-size: var(--h5-font-size);
+  --color: var(--mid-grey);
+}
+
+h6,
+.likeh6 {
+  --font-size: var(--h6-font-size);
+}
+
+@media (min-width: $tablet-start) {
+  .likeh1-desktop {
+    --font-size: var(--h1-font-size);
+  }
+
+  .likeh2-desktop {
+    --font-size: var(--h2-font-size);
+  }
+  .likeh3-desktop {
+    --font-size: var(--h3-font-size);
+  }
+  .likeh4-desktop {
+    --font-size: var(--h4-font-size);
+  }
+
+  .likeh5-desktop {
+    --font-size: var(--h5-font-size);
+  }
+
+  .likeh6-desktop {
+    --font-size: var(--h6-font-size);
+  }
+}
+
+@media (max-width: $mobile-end) {
+  .likeh1-mobile {
+    --font-size: var(--h1-font-size);
+  }
+
+  .likeh2-mobile {
+    --font-size: var(--h2-font-size);
+  }
+  .likeh3-mobile {
+    --font-size: var(--h3-font-size);
+  }
+  .likeh4-mobile {
+    --font-size: var(--h4-font-size);
+  }
+
+  .likeh5-mobile {
+    --font-size: var(--h5-font-size);
+  }
+
+  .likeh6-mobile {
+    --font-size: var(--h6-font-size);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  --color: var(--light-grey);
+}
+
+h1,
+h2,
+h4,
+h6,
+.heading {
+  --font-family: var(--heading-font-family);
+  --font-weight: var(--h1-font-weight);
+  --font-style: var(--h1-font-style);
+  --text-transform: var(--h1-text-transform);
+  --line-height: var(--h1-line-height);
+  --margin: 0;
+  &.light {
+    --color: var(--white);
+  }
+  &.red {
+    color: var(--red);
+  }
+}
+
+h3,
+.subheading {
+  --font-family: var(--subheading-font-family);
+  --font-weight: var(--subheading-font-weight);
+  --font-style: var(--subheading-font-style);
+  --text-transform: var(--subheading-text-transform);
+  --line-height: var(--subheading-line-height);
+  --margin: 0;
+  &.light {
+    --color: var(--white);
+  }
+  &.red {
+    color: var(--red);
+  }
+}
+
+:root {
+  --heading-font-family: "TradeGothic Bold Condensed", sans-serif;
+  --h1-font-weight: 700;
+  --h1-font-style: normal;
+  --h1-text-transform: uppercase;
+  --h1-letter-spacing: 0;
+  --h1-line-height: 1;
+}
+
+body {
+  --font-family: ff-enzo-web, sans-serif;
+  --font-weight: 600;
+  --font-style: normal;
+  --letter-spacing: 0;
+  --color: var(--almost-black);
+  --line-height: 1.35;
+  &.light {
+    --color: var(--white);
+  }
+  &.red {
+    color: var(--red);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+p {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: var(--margin);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-style: var(--font-style);
+  text-transform: var(--text-transform);
+  font-size: var(--font-size);
+  color: var(--color);
+  line-height: var(--line-height);
+
+  &.red {
+    --color: var(--red);
+  }
+  &.dark {
+    --color: var(--almost-black);
+  }
+}
+
+.light {
+  --color: var(--white);
+}
+
+p {
+  --margin: 0.5rem 0;
+}
+
+input,
+select,
+textarea {
+  font-family: ff-enzo-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--mid-grey);
+  font-size: var(--body2-rem);
+  line-height: 1.4;
+}
+a.cta,
+button.cta[type="submit"] {
+  font-family: "TradeGothic Bold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: calc(20 * var(--screen-w));
+  letter-spacing: 0.05em;
+  line-height: 2;
+}

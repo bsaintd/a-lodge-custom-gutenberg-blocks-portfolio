@@ -1,0 +1,1 @@
+rsync -av --exclude 'node_modules' --exclude '.git' . $1@$1.ssh.wpengine.net:/home/wpe-user/sites/$1/wp-content/plugins/alodge/

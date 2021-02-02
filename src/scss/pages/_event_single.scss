@@ -1,0 +1,21 @@
+// Calendar Single Event Desktop Styling
+@media only screen and (min-width: map_get($breakpoints, 'tablet') + 1px){
+  body.single-mec-events{
+    .mec-container{
+      padding: calc( 60 * var(--screen-w)) 0;
+      min-height: 80vh;
+      h1.mec-single-title{@include headings($h5size, $almost-black);}
+      .col-md-4{
+        section.widget{display: none;}
+      }
+    }
+    // hide footer calendar on calendar archive page (styling collisions)
+    .site-footer{
+      .footer-components{
+        .calendar-title h2,
+        .footer-cal .mec-wrap .mec-calendar,
+        .footer-cal .footer-cal-link{display: none;}
+      }
+    }
+  } // END body.single-mec-events
+} // END desktop only media query

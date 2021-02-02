@@ -1,0 +1,19 @@
+.top-left-fixed-logo{
+   --top: 2vw;
+   --left: 5vw;
+   --width: 13vw;
+   --display: none;
+   @media(min-width: $tablet-start){
+     --top: 2vw;
+     --left: 5vw;
+     --width: 13vw;
+     --display: block;
+   }
+   margin: 0;
+   position: absolute;
+   z-index: 10;
+   display: var(--display);
+   top: var(--top);
+   left: var(--left);
+   width: var(--width);
+}
